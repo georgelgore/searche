@@ -20,14 +20,30 @@ document.addEventListener('DOMContentLoaded', () => {
        })
 
        break;
-     case "search-button":
-       const searchInput = document.querySelector("input[data-value='search-input']")
-       if (searchInput) {
-         console.log(WikipediaAdapter.getWikiDataAPI(searchInput.value))
-         WikipediaAdapter.getWikiDataAPI(searchInput.value).then(wikiResults => WikipediaHandler.showResponses(wikiResults))
-       }
+       case "search-button":
+         const searchInput = document.querySelector("input[data-value='search-input']")
+         if (searchInput) {
+           StackXAdapter.getStackDataAPI(searchInput.value).then(response => StackHandler.showResponses(response, searchInput.value))
+           WikipediaAdapter.getWikiDataAPI(searchInput.value).then(wikiResults => WikipediaHandler.showResponses(wikiResults))
+
+         }
        break;
 
+       case "add-article-button":
+
+          // e.target.parentNode.getAttributes("data-title")
+          // e.target.parentNode.getAttributes("data-link")
+          // e.target.parentNode.getAttributes("data-topic")
+          //check if topic is in local
+            //if it is get that topic,
+                //create new article object with data-title and link and save it on the topic
+            //else
+                //create the new topic, and then create a new article and save it
+
+
+
+
+       break;
      default:
 
    }
