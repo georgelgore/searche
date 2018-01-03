@@ -17,11 +17,17 @@ class User{
 
     <div class="search">
       <h2>Search</h2>
+      <div class="search-bar">
+        <label>LOGIN</label>
+        <input type="text" name="search-bar" data-value="search-input">
+        <button type="button" name="search-bar" data-value="search-button">Find that Shiz!</button>
+      </div>
     </div>
 
     <div class="content">
-      <div class="google">
+      <div class="google" id="google-div">
         <h2>Google</h2>
+        </div>
       </div>
 
       <div class="wikipedia">

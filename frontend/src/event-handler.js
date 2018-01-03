@@ -26,4 +26,6 @@ static createNewUser(){
         return new User(obj[0])
     })
   }
+
+
 }

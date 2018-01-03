@@ -21,6 +21,12 @@ document.addEventListener('DOMContentLoaded', () => {
        })
 
        break;
+    case "search-button":
+      const searchInput = document.querySelector("input[data-value='search-input']")
+      if (searchInput) {
+        GoogleHandler.makeGoogleRequest(searchInput.value)
+      }
+      break;
      default:
 
    }
