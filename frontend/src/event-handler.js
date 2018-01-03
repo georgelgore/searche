@@ -14,22 +14,16 @@ class EventHandler{
 
 static createNewUser(){
   let userName = document.getElementsByName("username")[0].value
-  let newUser;
-  Adapter.createUserAPI(userName).then(obj =>{
-    let newUser = new User(obj)
+  return Adapter.createUserAPI(userName).then(obj =>{
+    return new User(obj)
   })
-  debugger
-  return newUser
 }
 
 
   static getExistingUser(){
-    let userName = document.getElementsByName("username")[0].value
-    let user;
-    let backendObj = Adapter.getUserDataAPI(userName).then(obj => {
-      debugger
-        user = new User(obj[0])
+    let userName = document.getElementsByName("username")[0].value;
+    return Adapter.getUserDataAPI(userName).then(obj => {
+        return new User(obj[0])
     })
-    return user
   }
 }

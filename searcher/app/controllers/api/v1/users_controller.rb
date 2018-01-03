@@ -1,8 +1,13 @@
 class Api::V1::UsersController < ApplicationController
 
   def index
-    @user = User.select{|user| user.username == params[:username]}
-    render json: @user
+    if params[:username]
+      @user = User.select{|user| user.username == params[:username]}
+      render json: @user
+      return
+    end
+    @users = User.all
+    render json: @users
   end
 
   def create
@@ -18,7 +23,7 @@ class Api::V1::UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:name, :username)
+    params.require(:user).permit(:username)
   end
 
 end

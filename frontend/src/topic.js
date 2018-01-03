@@ -5,6 +5,10 @@ class Topic{
     this.title = obj.title
     Topic.all.push(this)
   }
+
+  static render(){
+    Topic.all.forEach()
+  }
 }
 
 Topic.all = []

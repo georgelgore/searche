@@ -10,12 +10,13 @@ document.addEventListener('DOMContentLoaded', () => {
      case "username-button":
        EventHandler.userExists().then(boolean =>{
          if(boolean === true){
-           debugger
-             EventHandler.getExistingUser();
+             EventHandler.getExistingUser().then(obj => {
+               obj.render()
+             });
          } else {
-           debugger 
-             let userId = EventHandler.createNewUser();
-             // debugger
+             EventHandler.createNewUser().then(obj => {
+               obj.render()
+             });
          }
        })
 
