@@ -5,7 +5,6 @@ document.addEventListener('DOMContentLoaded', () => {
    e.preventDefault()
    console.log(e.target)
    const clicked = e.target.dataset.value
-   console.log(clicked)
    switch (clicked) {
      case "username-button":
        EventHandler.userExists().then(boolean =>{
@@ -21,12 +20,31 @@ document.addEventListener('DOMContentLoaded', () => {
        })
 
        break;
-    case "search-button":
-      const searchInput = document.querySelector("input[data-value='search-input']")
-      if (searchInput) {
-        GoogleHandler.makeGoogleRequest(searchInput.value)
-      }
-      break;
+       case "search-button":
+         const searchInput = document.querySelector("input[data-value='search-input']")
+         if (searchInput) {
+           GoogleHandler.makeGoogleRequest(searchInput.value)
+           StackXAdapter.getStackDataAPI(searchInput.value).then(response => StackHandler.showResponses(response, searchInput.value))
+           WikipediaAdapter.getWikiDataAPI(searchInput.value).then(wikiResults => WikipediaHandler.showResponses(wikiResults))
+
+         }
+       break;
+
+       case "add-article-button":
+
+          // e.target.parentNode.getAttributes("data-title")
+          // e.target.parentNode.getAttributes("data-link")
+          // e.target.parentNode.getAttributes("data-topic")
+          //check if topic is in local
+            //if it is get that topic,
+                //create new article object with data-title and link and save it on the topic
+            //else
+                //create the new topic, and then create a new article and save it
+
+
+
+
+       break;
      default:
 
    }

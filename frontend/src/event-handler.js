@@ -19,6 +19,27 @@ static createNewUser(){
   })
 }
 
+static createNewTopic(topic){
+
+  return Adapter.createNewTopic(topic).then(obj => {
+    return new Topic()
+  })
+
+}
+
+static createNewArticle(article)
+{
+  return Adapter.createNewArticle(article).then(obj => {
+    return new Article()
+  })
+
+}
+
+static updateTopicWithArticle()
+{
+  return Adapter.updateTopicWithArticle()
+
+}
 
   static getExistingUser(){
     let userName = document.getElementsByName("username")[0].value;
