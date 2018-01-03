@@ -1,8 +1,8 @@
 class Api::V1::UsersController < ApplicationController
 
   def index
-    @users = User.select{|user| user.username == params[:username]}
-    render json: @users
+    @user = User.select{|user| user.username == params[:username]}
+    render json: @user
   end
 
   def create
