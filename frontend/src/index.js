@@ -5,7 +5,6 @@ document.addEventListener('DOMContentLoaded', () => {
    e.preventDefault()
    console.log(e.target)
    const clicked = e.target.dataset.value
-   console.log(clicked)
    switch (clicked) {
      case "username-button":
        EventHandler.userExists().then(boolean =>{
@@ -21,6 +20,14 @@ document.addEventListener('DOMContentLoaded', () => {
        })
 
        break;
+     case "search-button":
+       const searchInput = document.querySelector("input[data-value='search-input']")
+       if (searchInput) {
+         console.log(WikipediaAdapter.getWikiDataAPI(searchInput.value))
+         WikipediaAdapter.getWikiDataAPI(searchInput.value).then(wikiResults => WikipediaHandler.showResponses(wikiResults))
+       }
+       break;
+
      default:
 
    }

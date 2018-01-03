@@ -18,7 +18,7 @@ class User{
     <div class="search">
       <h2>Search</h2>
       <div class="search-bar">
-        <label>LOGIN</label>
+        <label>Search</label>
         <input type="text" name="search-bar" data-value="search-input">
         <button type="button" name="search-bar" data-value="search-button">Find that Shiz!</button>
       </div>
@@ -26,15 +26,12 @@ class User{
 
     <div class="content">
       <div class="google">
-        <h2>Google</h2>
       </div>
 
       <div class="wikipedia">
-        <h2>Wikepedia</h2>
       </div>
 
       <div class="stack-overflow" >
-        <h2>stack-overflow</h2>
       </div>
 
     </div>
