@@ -18,21 +18,11 @@ static createNewUser(){
   Adapter.createUserAPI(userName).then(obj =>{
     let newUser = new User(obj)
     userId = newUser.id
-    // debugger
-        // let makeBoard = Adapter.createBoardAPI(newUser.id).then(obj => {
-        //   let newBoard = new Board(obj)
-        // })
   })
   debugger
   return userId
 }
 
-static createNewBoard(userId){
-  Adapter.createBoardAPI(userId).then(obj => {
-    // debugger
-    let newBoard = new Board()
-  })
-}
 
   static getExistingUser(){
     let userName = document.getElementsByName("username")[0].value

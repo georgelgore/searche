@@ -1,8 +1,8 @@
 class User{
-  consructor(id, username, name){
-    this.name = name
-    this.username = username
-    this.id = id
+  consructor(obj){
+    this.name = obj.name
+    this.username = obj.username
+    this.id = obj.id
   }
 
 }
