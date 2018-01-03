@@ -14,13 +14,12 @@ class EventHandler{
 
 static createNewUser(){
   let userName = document.getElementsByName("username")[0].value
-  let userId;
+  let newUser;
   Adapter.createUserAPI(userName).then(obj =>{
     let newUser = new User(obj)
-    userId = newUser.id
   })
   debugger
-  return userId
+  return newUser
 }
 
 

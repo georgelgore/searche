@@ -8,7 +8,18 @@ document.addEventListener('DOMContentLoaded', () => {
    console.log(clicked)
    switch (clicked) {
      case "username-button":
-      break;
+       EventHandler.userExists().then(boolean =>{
+         if(boolean === true){
+           debugger
+             EventHandler.getExistingUser();
+         } else {
+           debugger 
+             let userId = EventHandler.createNewUser();
+             // debugger
+         }
+       })
+
+       break;
      default:
 
    }
