@@ -2,7 +2,7 @@ document.addEventListener('DOMContentLoaded', () => {
  const MAINDIV = document.querySelector("div.main")
  // Using data-value attribute to make selecting elements uniform
  MAINDIV.addEventListener('click', e => {
-   e.preventDefault()
+  //  e.preventDefault()
   //  console.log(e.target)
    const clicked = e.target.dataset.value
    switch (clicked) {
@@ -21,11 +21,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
        break;
      case "search-button":
-       const searchInput = document.querySelector("input[data-value='search-input']")
+       const searchInput = document.querySelector("input[data-value='search-input']").value.toLowerCase()
        if (searchInput) {
-         GoogleHandler.makeGoogleRequest(searchInput.value)
-         StackXAdapter.getStackDataAPI(searchInput.value).then(response => StackHandler.showResponses(response, searchInput.value))
-         WikipediaAdapter.getWikiDataAPI(searchInput.value).then(wikiResults => WikipediaHandler.showResponses(wikiResults, searchInput.value))
+         GoogleHandler.makeGoogleRequest(searchInput)
+         StackXAdapter.getStackDataAPI(searchInput).then(response => StackHandler.showResponses(response, searchInput))
+         WikipediaAdapter.getWikiDataAPI(searchInput).then(wikiResults => WikipediaHandler.showResponses(wikiResults, searchInput))
         //  searchInput.value = ""
        }
        break;
@@ -72,8 +72,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
       //  console.log(articleTitle)
 
-       const topic = {user_id: User.all[0].id, title: topicTitle.charAt(0).toUpperCase() + topicTitle.slice(1)}
-
+       const topic = {user_id: User.all[0].id, title: topicTitle}
+      //  topicTitle.charAt(0).toUpperCase() + topicTitle.slice(1)
        EventHandler.topicExists(topic).then(boolean =>{
          if(boolean){
            const topicId = EventHandler.getExistingTopic(topic.title).id

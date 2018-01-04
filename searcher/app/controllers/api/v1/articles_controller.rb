@@ -1,7 +1,6 @@
 class Api::V1::ArticlesController < ApplicationController
 
   def index
-    puts params
     if params[:url] && params[:topic_id]
       # byebug
       @article = Article.select{|article| article.url == params[:url] && article.topic_id == params[:topic_id].to_i}
