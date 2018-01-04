@@ -12,7 +12,7 @@ class User{
     document.getElementById('secret-header').innerHTML =
     `
     <nav class="navbar navbar-default">
-      <div class="container-fluid">
+      <div class="container-fluid" >
         <div class="navbar-header">
           <a class="navbar-brand" href="#">Searche</a>
         </div>
@@ -24,14 +24,14 @@ class User{
     </nav>
     `
     // <h1>Welcome, ${this.userName}!</h1>
-    document.querySelector("div.main").innerHTML = `
+    document.querySelector("div.main").innerHTML =
+    `
 
     <div class="topic">
     </div>
 
     <div class="search">
 
-    <h2>Search</h2>
       <div class="search-bar">
         <label>SEARCH!</label>
         <input type="text" name="search-bar" data-value="search-input">
@@ -40,18 +40,18 @@ class User{
     </div>
 
     <div class="row">
-      <div id="topic-box" style="border:1px solid black; min-height:200px; overflow: scroll;" class="col-sm-4">
+      <div id="topic-box" style="border:.017px solid black; height:239px; overflow: scroll;" class="col-sm-4">
       </div>
-      <div id="article-box" style="border:1px solid black; min-height:200px;" class="col-sm-8">
+      <div id="article-box" style="border:.017px solid black; height:239px; overflow: scroll;" class="col-sm-8">
 
       </div>
     </div>
 
     <div class="row">
-      <div id="response-box" style="border:1px solid black; min-height:200px; overflow: scroll;" class="col-sm-12">
+      <div id="response-box" style="border:.017px solid black; height:250px; overflow: scroll;" class="col-sm-12">
         <div class="content">
 
-          <div class="google">
+          <div class="google" data-toggle="collapse">
           </div>
 
           <div class="wikipedia">

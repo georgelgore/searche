@@ -2,7 +2,11 @@ class GoogleHandler{
   static renderGoogle(responses, searchTerm)
   {
       const googleDiv = document.querySelector("div.google")
-      googleDiv.innerHTML = "<h2> Google </h2>"
+      googleDiv.innerHTML = '<h2 data-toggle="collapse" data-target="#text3"> Google </h2>'
+
+      let holder1 = document.createElement('div')
+      holder3.className = "collapse"
+      holder3.setAttribute("id", "text3")
 
       responses.forEach(function(item){
         let responseCard = document.createElement('div')
@@ -11,11 +15,13 @@ class GoogleHandler{
         responseCard.setAttribute("data-article-link", item.link)
         responseCard.setAttribute("data-article-description", item.snippet)
         responseCard.setAttribute("data-topic-title", searchTerm)
+        responseCard.setAttribute("data-toggle", "collapse")
         responseCard.innerHTML += `
         <a href=${item.link}>${item.title}</a><br>`
         responseCard.innerHTML += `<p> ${item.snippet} </p>`
         responseCard.innerHTML += `<button data-value="add-article-button" type="button">Add Me</button>`
-        googleDiv.append(responseCard)
+        holder3.append(responseCard)
+        googleDiv.append(holder3)
       })
     }
 
