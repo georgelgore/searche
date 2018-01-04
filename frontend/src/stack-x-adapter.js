@@ -6,6 +6,7 @@ class StackXAdapter
   static getStackDataAPI(searchTerm){
     let encodedTerm = encodeURI(searchTerm)
     return fetch(`https://api.stackexchange.com/2.2/questions?pagesize=10&order=desc&sort=activity&tagged=${encodedTerm}&site=stackoverflow&filter=!-*f(6rf)cxA5`).then(resp => resp.json())
+    // fetch(`https://api.stackexchange.com/2.2/questions?pagesize=10&answers=1&order=desc&sort=activity&tag=sql&site=stackoverflow&filter=!-*f(6rf)cxA5`).then(resp => resp.json())
   }
 
 }

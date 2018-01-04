@@ -10,7 +10,7 @@ class WikipediaHandler {
 
   }
 
-  static showResponses(responses){
+  static showResponses(responses, searchTerm){
    const wikipediaDiv = document.querySelector("div.wikipedia")
    wikipediaDiv.innerHTML = "<h2>Wikepedia</h2>"
 
@@ -20,7 +20,7 @@ class WikipediaHandler {
      responseCard.setAttribute("data-article-title", response)
      responseCard.setAttribute("data-article-link", responses[3][index])
      responseCard.setAttribute("data-article-description", responses[2][index])
-     responseCard.setAttribute("data-topic-title", response[0])
+     responseCard.setAttribute("data-topic-title", searchTerm)
      responseCard.innerHTML += `<a href=${responses[3][index]}>${response}</a><br>`
      responseCard.innerHTML += `<p>${responses[2][index]}>${response}</p>`
      responseCard.innerHTML += `<button data-value="add-article-button" type="button">Add Me</button>`

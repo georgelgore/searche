@@ -20,32 +20,50 @@ document.addEventListener('DOMContentLoaded', () => {
        })
 
        break;
-       case "search-button":
-         const searchInput = document.querySelector("input[data-value='search-input']")
-         if (searchInput) {
-           GoogleHandler.makeGoogleRequest(searchInput.value)
-           StackXAdapter.getStackDataAPI(searchInput.value).then(response => StackHandler.showResponses(response, searchInput.value))
-           WikipediaAdapter.getWikiDataAPI(searchInput.value).then(wikiResults => WikipediaHandler.showResponses(wikiResults))
+     case "search-button":
+       const searchInput = document.querySelector("input[data-value='search-input']")
+       if (searchInput) {
+         GoogleHandler.makeGoogleRequest(searchInput.value)
+         StackXAdapter.getStackDataAPI(searchInput.value).then(response => StackHandler.showResponses(response, searchInput.value))
+         WikipediaAdapter.getWikiDataAPI(searchInput.value).then(wikiResults => WikipediaHandler.showResponses(wikiResults, searchInput.value))
 
+       }
+       break;
+
+     case "add-article-button":
+       const topicTitle = e.target.parentNode.getAttribute("data-topic-title");
+       const articleDescription = e.target.parentNode.getAttribute("data-article-description")
+       const articleLink = e.target.parentNode.getAttribute("data-article-link")
+       const articleTitle = e.target.parentNode.getAttribute("data-article-title")
+
+      //  console.log(articleTitle)
+       const topic = {user_id: User.all[0].id, title: topicTitle}
+
+       EventHandler.topicExists(topic).then(boolean =>{
+         if(boolean){
+           const topicId = EventHandler.getExistingTopic(topic.title).id
+          //  console.log(topicId)
+           const article = {topic_id: topicId, title: articleTitle, url: articleLink, description: articleDescription}
+           EventHandler.articleExists(article).then(boolean =>{
+             if (boolean) {
+             }else {
+               EventHandler.createNewArticle(article)
+             }
+           })
+         } else {
+           EventHandler.createNewTopic(topic).then(top => {
+             const topicId = EventHandler.getExistingTopic(topic.title).id
+             const article = {topic_id: topicId, title: articleTitle, url: articleLink, description: articleDescription}
+             EventHandler.createNewArticle(article)
+             console.log(Topic.all)
+             console.log(Article.all)
+             Topic.render()
+           })
          }
+       })
+       console.log(Topic.all)
+       console.log(Article.all)
        break;
-
-       case "add-article-button":
-
-          // e.target.parentNode.getAttributes("data-title")
-          // e.target.parentNode.getAttributes("data-link")
-          // e.target.parentNode.getAttributes("data-topic")
-          //check if topic is in local
-            //if it is get that topic,
-                //create new article object with data-title and link and save it on the topic
-            //else
-                //create the new topic, and then create a new article and save it
-
-
-
-
-       break;
-     default:
 
    }
  })
