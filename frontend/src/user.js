@@ -30,34 +30,27 @@ class User{
     </nav>
     `
     // <h1>Welcome, ${this.userName}!</h1>
-    // <h2>Search</h2>
-    //   <div class="search-bar">
-    //     <label>SEARCH!</label>
-    //     <input type="text" name="search-bar" data-value="search-input">
-    //     <button type="button" name="search-bar" data-value="search-button">Find that Shiz!</button>
-    //   </div>
-    document.querySelector("div.main").innerHTML += `
+    document.querySelector("div.main").innerHTML +=
+    `
 
     <div class="topic">
     </div>
 
-    <div class="search">
 
 
-    </div>
-    <div class="row" style="max-height: 50%; overflow: scroll;">
-      <div id="topic-box" style="border:1px solid black; height:200px; overflow: scroll;" class="col-sm-4">
+    <div class="row">
+      <div id="topic-box" style="border:.017px solid black; height:239px; overflow: scroll;" class="col-sm-4">
       </div>
-      <div id="article-box" style="border:1px solid black; height:200px; overflow: scroll;" class="col-sm-8">
+      <div id="article-box" style="border:.017px solid black; height:239px; overflow: scroll;" class="col-sm-8">
 
       </div>
     </div>
 
     <div class="row">
-      <div id="response-box" style="border:1px solid black; height:400px; overflow: scroll;" class="col-sm-12">
+      <div id="response-box" style="border:.017px solid black; height:250px; overflow: scroll;" class="col-sm-12">
         <div class="content">
 
-          <div class="google">
+          <div class="google" data-toggle="collapse">
           </div>
 
           <div class="wikipedia">
