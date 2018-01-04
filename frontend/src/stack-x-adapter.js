@@ -5,8 +5,8 @@ class StackXAdapter
   // const KEY = "9Zi7FOM4BG)czMpaX*PchA(("
   static getStackDataAPI(searchTerm){
     let encodedTerm = encodeURI(searchTerm)
-    return fetch(`https://api.stackexchange.com/2.2/questions?pagesize=10&order=desc&sort=activity&tagged=${encodedTerm}&site=stackoverflow&filter=!-*f(6rf)cxA5`).then(resp => resp.json())
-    // fetch(`https://api.stackexchange.com/2.2/questions?pagesize=10&answers=1&order=desc&sort=activity&tag=sql&site=stackoverflow&filter=!-*f(6rf)cxA5`).then(resp => resp.json())
+    return fetch(`https://api.stackexchange.com/2.2/search/advanced?pagesize=10&order=desc&sort=relevance&q=${encodedTerm}&answers=1&site=stackoverflow&filter=!9YdnSIaCy`).then(resp => resp.json())
+
   }
 
 }
