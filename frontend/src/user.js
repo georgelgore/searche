@@ -1,6 +1,6 @@
 class User{
   constructor(obj){
-    this.username = obj.username
+    this.userName = obj.username
     this.id = obj.id
     // this.topics = []
     this.populateTopics(obj.topics)
@@ -9,8 +9,22 @@ class User{
   }
 
   render(){
+    // document.getElementById('secret-header').innerHTML =
+    // `
+    // <nav class="navbar navbar-default">
+    //   <div class="container-fluid">
+    //     <div class="navbar-header">
+    //       <a class="navbar-brand" href="#">Searche</a>
+    //     </div>
+    //
+    //     <ul class="nav navbar-nav">
+    //       <li><a href="#">Saved Topics</a></li>
+    //     </ul>
+    //   </div>
+    // </nav>
+    // `
     document.querySelector("div.main").innerHTML = `
-    <h1>Welcome User</h1>
+    <h1>Welcome, ${this.userName}!</h1>
     <div class="topic">
       <h2>Topics</h2>
     </div>
