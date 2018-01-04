@@ -6,13 +6,15 @@ class GoogleHandler{
 
       responses.forEach(function(item){
         let responseCard = document.createElement('div')
+        // console.log(item)
         responseCard.setAttribute("data-article-title", item.title)
         responseCard.setAttribute("data-article-link", item.link)
+        responseCard.setAttribute("data-article-description", item.snippet)
         responseCard.setAttribute("data-topic-title", searchTerm)
         responseCard.innerHTML += `
         <a href=${item.link}>${item.title}</a><br>`
         responseCard.innerHTML += `<p> ${item.snippet} </p>`
-        responseCard.innerHTML += `<button data-value="add-article-button" type="button">Click Me </button>`
+        responseCard.innerHTML += `<button data-value="add-article-button" type="button">Add Me</button>`
         googleDiv.append(responseCard)
       })
     }

@@ -4,7 +4,7 @@ class User{
     this.id = obj.id
     // this.topics = []
     this.populateTopics(obj.topics)
-    this.populateTopics(obj.articles)
+    this.populateArticles(obj.articles)
     User.all.push(this)
   }
 
@@ -26,7 +26,6 @@ class User{
     document.querySelector("div.main").innerHTML = `
     <h1>Welcome, ${this.userName}!</h1>
     <div class="topic">
-      <h2>Topics</h2>
     </div>
 
     <div class="search">
@@ -52,6 +51,7 @@ class User{
 
     </div>
     `
+    Topic.render()
   }
 
   populateTopics(arr){
@@ -61,6 +61,7 @@ class User{
   }
 
   populateArticles(arr){
+    // debugger
     if (arr.length > 0) {
       arr.forEach(a => new Article(a))
     }
