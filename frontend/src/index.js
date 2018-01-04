@@ -17,6 +17,7 @@ document.addEventListener('DOMContentLoaded', () => {
                obj.render()
              });
          }
+
        })
 
        break;

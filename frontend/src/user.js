@@ -7,48 +7,54 @@ class User{
     this.populateArticles(obj.articles)
     User.all.push(this)
   }
+  // document.getElementById('secret-header').innerHTML =
 
   render(){
-    document.getElementById('secret-header').innerHTML =
+    document.querySelector('div.main').innerHTML =
     `
-    <nav class="navbar navbar-default">
-      <div class="container-fluid">
-        <div class="navbar-header">
-          <a class="navbar-brand" href="#">Searche</a>
-        </div>
+    <nav class="navbar navbar-default" data-value="navbar">
+        <div class="container container-fluid">
+          <div class="navbar-header">
+            <a class="navbar-brand" href="#">Searche</a>
+          </div>
 
-        <ul class="nav navbar-nav">
-          <li><a href="#">Saved Topics</a></li>
-        </ul>
-      </div>
+          <div class="form-group">
+            <ul class="nav navbar-nav">
+                <input type="text" class="form-control" size="80" name="search-bar" data-value="search-input" placeholder="Search Google, Wikipedia, and Stack Overflow">
+                <button type="submit" name="search-bar" data-value="search-button" class="btn btn-default navbar-btn">Searche</button>
+            </ul>
+
+
+          </div>
+        </div>
     </nav>
     `
     // <h1>Welcome, ${this.userName}!</h1>
-    document.querySelector("div.main").innerHTML = `
+    // <h2>Search</h2>
+    //   <div class="search-bar">
+    //     <label>SEARCH!</label>
+    //     <input type="text" name="search-bar" data-value="search-input">
+    //     <button type="button" name="search-bar" data-value="search-button">Find that Shiz!</button>
+    //   </div>
+    document.querySelector("div.main").innerHTML += `
 
     <div class="topic">
     </div>
 
     <div class="search">
 
-    <h2>Search</h2>
-      <div class="search-bar">
-        <label>SEARCH!</label>
-        <input type="text" name="search-bar" data-value="search-input">
-        <button type="button" name="search-bar" data-value="search-button">Find that Shiz!</button>
-      </div>
-    </div>
 
-    <div class="row">
-      <div id="topic-box" style="border:1px solid black; min-height:200px; overflow: scroll;" class="col-sm-4">
+    </div>
+    <div class="row" style="max-height: 50%; overflow: scroll;">
+      <div id="topic-box" style="border:1px solid black; height:200px; overflow: scroll;" class="col-sm-4">
       </div>
-      <div id="article-box" style="border:1px solid black; min-height:200px;" class="col-sm-8">
+      <div id="article-box" style="border:1px solid black; height:200px; overflow: scroll;" class="col-sm-8">
 
       </div>
     </div>
 
     <div class="row">
-      <div id="response-box" style="border:1px solid black; min-height:200px; overflow: scroll;" class="col-sm-12">
+      <div id="response-box" style="border:1px solid black; height:400px; overflow: scroll;" class="col-sm-12">
         <div class="content">
 
           <div class="google">
