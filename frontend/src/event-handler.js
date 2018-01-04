@@ -28,6 +28,14 @@ class EventHandler{
 
   }
 
+  static deleteTopic(id)
+  {
+    return Adapter.deleteTopicAPI(id).then(resp =>{
+      console.log(resp)
+    })
+
+  }
+
   static getExistingUser(){
     let userName = document.getElementsByName("username")[0].value;
     return Adapter.getUserDataAPI(userName).then(obj => {

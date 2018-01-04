@@ -3,7 +3,7 @@ document.addEventListener('DOMContentLoaded', () => {
  // Using data-value attribute to make selecting elements uniform
  MAINDIV.addEventListener('click', e => {
    e.preventDefault()
-   console.log(e.target)
+  //  console.log(e.target)
    const clicked = e.target.dataset.value
    switch (clicked) {
      case "username-button":
@@ -26,31 +26,41 @@ document.addEventListener('DOMContentLoaded', () => {
          GoogleHandler.makeGoogleRequest(searchInput.value)
          StackXAdapter.getStackDataAPI(searchInput.value).then(response => StackHandler.showResponses(response, searchInput.value))
          WikipediaAdapter.getWikiDataAPI(searchInput.value).then(wikiResults => WikipediaHandler.showResponses(wikiResults, searchInput.value))
-
+        //  searchInput.value = ""
        }
        break;
 
-      case "view-topic-button":
-        const articleBox = document.getElementById("article-box")
-        let allArticles = Article.all.filter(article =>{
-          return article.topicId === parseInt(e.target.dataset.topicId)
-        })
-        allArticles.forEach(article =>{
-          let newDiv = document.createElement("div")
-          newDiv.innerHTML += `<a href=${article.link}>${article.title}</a><br>`
-          newDiv.innerHTML += `<p>${article.description}</p>`
-          newDiv.innerHTML += `<button data-value="delete-article-button" data-id=${article.id} type="button">Delete</button>`
-          articleBox.append(newDiv)
-        })
+    case "view-topic-button":
+        Article.render(e.target.dataset.topicId)
       break;
 
-      case "delete-article-button":
+    case "delete-article-button":
         // debugger
         EventHandler.deleteArticle(parseInt(e.target.dataset.id)).then(resp => {
           e.target.parentNode.outerHTML = ''
-          Article.all.filter(article => {
-            article.id !== parseInt(e.target.dataset.id)
+          Article.all = Article.all.filter(article => {
+            return article.id !== parseInt(e.target.dataset.id)
           })
+          // console.log(Article.all)
+        })
+      break;
+
+    case "delete-topic-button":
+        // debugger
+        const articleBox = document.getElementById("article-box")
+
+        EventHandler.deleteTopic(parseInt(e.target.dataset.id)).then(resp => {
+          articleBox.innerHTML = ''
+          Topic.all = Topic.all.filter(topic => {
+            return topic.id !== parseInt(e.target.dataset.id)
+          })
+          Article.all = Article.all.filter(article => {
+            return article.topicId !== parseInt(e.target.dataset.id)
+          })
+
+          // console.log(Topic.all)
+          // console.log(Article.all)
+          Topic.render()
         })
       break;
 
@@ -72,22 +82,18 @@ document.addEventListener('DOMContentLoaded', () => {
            EventHandler.articleExists(article).then(boolean =>{
              if (boolean) {
              }else {
-               EventHandler.createNewArticle(article)
+               EventHandler.createNewArticle(article).then(resp => Article.render(topicId))
              }
            })
          } else {
            EventHandler.createNewTopic(topic).then(top => {
              const topicId = EventHandler.getExistingTopic(topic.title).id
              const article = {topic_id: topicId, title: articleTitle, url: articleLink, description: articleDescription}
-             EventHandler.createNewArticle(article)
-             console.log(Topic.all)
-             console.log(Article.all)
              Topic.render()
+             EventHandler.createNewArticle(article).then(resp => Article.render(topicId))
            })
          }
        })
-       console.log(Topic.all)
-       console.log(Article.all)
        break;
 
    }

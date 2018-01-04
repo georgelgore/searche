@@ -35,9 +35,21 @@ class Adapter{
   static getArticleDataAPI(url, topic_id){
     return fetch(`http://localhost:3000/api/v1/articles?url=${url}&topic_id=${topic_id}`).then(resp => resp.json())
   }
+
   static deleteArticleAPI(id)
   {
     return fetch(`http://localhost:3000/api/v1/articles/${id}`,{
+      method: 'delete',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      }
+    })
+  }
+
+  static deleteTopicAPI(id)
+  {
+    return fetch(`http://localhost:3000/api/v1/topics/${id}`,{
       method: 'delete',
       headers: {
         'Accept': 'application/json',
