@@ -17,6 +17,7 @@ class Api::V1::TopicsController < ApplicationController
   end
 
   def create
+    
     @topic = Topic.new(topic_params)
     if @topic.save
       render json: @topic

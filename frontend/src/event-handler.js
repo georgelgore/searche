@@ -20,6 +20,14 @@ class EventHandler{
     })
   }
 
+  static deleteArticle(id)
+  {
+    return Adapter.deleteArticleAPI(id).then(resp =>{
+      console.log(resp)
+    })
+
+  }
+
   static getExistingUser(){
     let userName = document.getElementsByName("username")[0].value;
     return Adapter.getUserDataAPI(userName).then(obj => {

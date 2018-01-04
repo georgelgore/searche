@@ -30,6 +30,30 @@ document.addEventListener('DOMContentLoaded', () => {
        }
        break;
 
+      case "view-topic-button":
+        const articleBox = document.getElementById("article-box")
+        let allArticles = Article.all.filter(article =>{
+          return article.topicId === parseInt(e.target.dataset.topicId)
+        })
+        allArticles.forEach(article =>{
+          let newDiv = document.createElement("div")
+          newDiv.innerHTML += `<a href=${article.link}>${article.title}</a><br>`
+          newDiv.innerHTML += `<p>${article.description}</p>`
+          newDiv.innerHTML += `<button data-value="delete-article-button" data-id=${article.id} type="button">Delete</button>`
+          articleBox.append(newDiv)
+        })
+      break;
+
+      case "delete-article-button":
+        // debugger
+        EventHandler.deleteArticle(parseInt(e.target.dataset.id)).then(resp => {
+          e.target.parentNode.outerHTML = ''
+          Article.all.filter(article => {
+            article.id !== parseInt(e.target.dataset.id)
+          })
+        })
+      break;
+
      case "add-article-button":
        const topicTitle = e.target.parentNode.getAttribute("data-topic-title");
        const articleDescription = e.target.parentNode.getAttribute("data-article-description")
@@ -37,7 +61,8 @@ document.addEventListener('DOMContentLoaded', () => {
        const articleTitle = e.target.parentNode.getAttribute("data-article-title")
 
       //  console.log(articleTitle)
-       const topic = {user_id: User.all[0].id, title: topicTitle}
+
+       const topic = {user_id: User.all[0].id, title: topicTitle.charAt(0).toUpperCase() + topicTitle.slice(1)}
 
        EventHandler.topicExists(topic).then(boolean =>{
          if(boolean){

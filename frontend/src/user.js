@@ -23,8 +23,9 @@ class User{
       </div>
     </nav>
     `
+    // <h1>Welcome, ${this.userName}!</h1>
     document.querySelector("div.main").innerHTML = `
-    <h1>Welcome, ${this.userName}!</h1>
+
     <div class="topic">
     </div>
 
@@ -38,18 +39,33 @@ class User{
       </div>
     </div>
 
-    <div class="content">
-
-      <div class="google">
+    <div class="row">
+      <div id="topic-box" style="border:1px solid black; min-height:200px; overflow: scroll;" class="col-sm-4">
       </div>
+      <div id="article-box" style="border:1px solid black; min-height:200px;" class="col-sm-8">
 
-      <div class="wikipedia">
       </div>
+    </div>
 
-      <div class="stack-overflow" >
+    <div class="row">
+      <div id="response-box" style="border:1px solid black; min-height:200px; overflow: scroll;" class="col-sm-12">
+        <div class="content">
+
+          <div class="google">
+          </div>
+
+          <div class="wikipedia">
+          </div>
+
+          <div class="stack-overflow" >
+          </div>
+
+        </div>
       </div>
 
     </div>
+
+
     `
     Topic.render()
   }
