@@ -23,7 +23,7 @@ class GoogleHandler{
   static makeGoogleRequest(searchTerm){
     let search = encodeURI(searchTerm.toLowerCase())
     GoogleAdapter.makeRequest(search).then(obj => {
-        GoogleHandler.renderGoogle(obj.items, search)
+        GoogleHandler.renderGoogle(obj.items, decodeURI(search))
       })
   }
 }
