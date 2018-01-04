@@ -9,20 +9,20 @@ class User{
   }
 
   render(){
-    // document.getElementById('secret-header').innerHTML =
-    // `
-    // <nav class="navbar navbar-default">
-    //   <div class="container-fluid">
-    //     <div class="navbar-header">
-    //       <a class="navbar-brand" href="#">Searche</a>
-    //     </div>
-    //
-    //     <ul class="nav navbar-nav">
-    //       <li><a href="#">Saved Topics</a></li>
-    //     </ul>
-    //   </div>
-    // </nav>
-    // `
+    document.getElementById('secret-header').innerHTML =
+    `
+    <nav class="navbar navbar-default">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <a class="navbar-brand" href="#">Searche</a>
+        </div>
+
+        <ul class="nav navbar-nav">
+          <li><a href="#">Saved Topics</a></li>
+        </ul>
+      </div>
+    </nav>
+    `
     document.querySelector("div.main").innerHTML = `
     <h1>Welcome, ${this.userName}!</h1>
     <div class="topic">
