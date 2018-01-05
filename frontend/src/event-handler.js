@@ -1,7 +1,7 @@
 class EventHandler{
 
   static userExists(){
-    let userName = document.getElementsByName("username")[0].value
+    let userName = document.querySelector("input[data-value='username-input']").value.toLowerCase()
     let backendObj = Adapter.getUserDataAPI(userName).then(obj => {
       if (obj.length === 0){
         return false
@@ -14,7 +14,7 @@ class EventHandler{
   }
 
   static createNewUser(){
-    let userName = document.getElementsByName("username")[0].value
+    let userName = document.querySelector("input[data-value='username-input']").value.toLowerCase()
     return Adapter.createUserAPI(userName).then(obj =>{
       return new User(obj)
     })
@@ -37,7 +37,7 @@ class EventHandler{
   }
 
   static getExistingUser(){
-    let userName = document.getElementsByName("username")[0].value;
+    let userName = document.querySelector("input[data-value='username-input']").value.toLowerCase()
     return Adapter.getUserDataAPI(userName).then(obj => {
         return new User(obj[0])
     })

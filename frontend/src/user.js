@@ -13,20 +13,19 @@ class User{
     document.querySelector('div.main').innerHTML =
     `
     <nav class="navbar navbar-default" data-value="navbar">
-        <div class="container container-fluid">
-          <div class="navbar-header">
-            <a class="navbar-brand" href="#">Searche</a>
+        <div class="container">
+          <div class="row">
+            <div class="col-xs-8 col-xs-offset-2">
+              <input type="text" class="form-control size="80" name="search-bar" data-value="search-input" placeholder="Search Google, Wikipedia, and Stack Overflow">
+            </div>
           </div>
-
-          <div class="form-group">
-            <ul class="nav navbar-nav">
-                <input type="text" class="form-control" size="80" name="search-bar" data-value="search-input" placeholder="Search Google, Wikipedia, and Stack Overflow">
-                <button type="submit" name="search-bar" data-value="search-button" class="btn btn-primary navbar-btn">Searche</button>
-            </ul>
-
-
+          <div class="row">
+            <div class="col-xs-4 col-xs-offset-5">
+              <button type="submit" name="search-bar" data-value="search-button" class="btn btn-primary navbar-btn">Searche</button>
+            </div>
           </div>
         </div>
+      </div>
     </nav>
     `
     // <h1>Welcome, ${this.userName}!</h1>
