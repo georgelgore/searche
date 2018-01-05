@@ -1,0 +1,26 @@
+body{
+  font-family: 'Roboto', sans-serif;
+  background:url("https://i1.wp.com/www.guggenheim.org/wp-content/uploads/1990/01/2001.268_ph_web.jpg")no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+#topic-box {
+  background-color: rgba(145, 168, 208,0.5);
+}
+#article-box {
+  background-color: rgba(145, 168, 208,0.5);
+}
+#response-box {
+  background-color: rgba(145, 168, 208,0.5);
+}
+
+h2:hover{
+  background-color: silver;
+}
+
+a{
+  color: white;
+}
