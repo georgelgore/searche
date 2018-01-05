@@ -7,6 +7,12 @@ class Topic{
     Topic.all.push(this)
   }
 
+  static findArticle(topicId){
+    return Topic.all.find(top => {
+      return top.id === topicId
+    })
+  }
+  
   static render(){
     const topicDiv = document.getElementById("topic-box")
     console.log(topicDiv)
