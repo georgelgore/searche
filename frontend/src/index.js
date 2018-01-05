@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
  const MAINDIV = document.querySelector("div.main")
- // Using data-value attribute to make selecting elements uniform
+
  MAINDIV.addEventListener('click', e => {
    const clicked = e.target.dataset.value
    switch (clicked) {

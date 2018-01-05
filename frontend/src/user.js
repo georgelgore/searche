@@ -47,7 +47,7 @@ class User{
     </div>
 
     <div class="row">
-      <div id="response-box" style="height:250px; overflow: scroll;" class="col-sm-12">
+      <div id="response-box" style="height:300px; overflow: scroll;" class="col-sm-12">
         <div class="content">
 
           <div class="google">
