@@ -5,18 +5,24 @@ document.addEventListener('DOMContentLoaded', () => {
    const clicked = e.target.dataset.value
    switch (clicked) {
      case "username-button":
-       EventHandler.userExists().then(boolean =>{
-         if(boolean === true){
-             EventHandler.getExistingUser().then(obj => {
-               obj.render()
-             });
-         } else {
-             EventHandler.createNewUser().then(obj => {
-               obj.render()
-             });
-         }
+       const emailInput = document.querySelector("input[data-value='username-input']")
+       if (emailInput.value) {
+         EventHandler.userExists().then(boolean =>{
+           if(boolean === true){
+               EventHandler.getExistingUser().then(obj => {
+                 obj.render()
+               });
+           } else {
+               EventHandler.createNewUser().then(obj => {
+                 obj.render()
+               });
+           }
 
-       })
+         })
+       }else {
+         const emailSpan = document.querySelector('span.text-danger')
+         emailSpan.innerHTML = "Please enter a username"
+       }
 
        break;
      case "search-button":
