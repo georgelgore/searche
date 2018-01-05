@@ -50,7 +50,7 @@ class User{
       <div id="response-box" style="height:250px; overflow: scroll;" class="col-sm-12">
         <div class="content">
 
-          <div class="google" data-toggle="collapse">
+          <div class="google">
           </div>
 
           <div class="wikipedia">
