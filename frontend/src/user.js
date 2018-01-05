@@ -21,7 +21,7 @@ class User{
           <div class="form-group">
             <ul class="nav navbar-nav">
                 <input type="text" class="form-control" size="80" name="search-bar" data-value="search-input" placeholder="Search Google, Wikipedia, and Stack Overflow">
-                <button type="submit" name="search-bar" data-value="search-button" class="btn btn-default navbar-btn">Searche</button>
+                <button type="submit" name="search-bar" data-value="search-button" class="btn btn-primary navbar-btn">Searche</button>
             </ul>
 
 

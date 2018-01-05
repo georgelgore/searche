@@ -26,9 +26,9 @@ class WikipediaHandler {
      responseCard.setAttribute("data-article-description", responses[2][index])
      responseCard.setAttribute("data-topic-title", searchTerm)
 
-     responseCard.innerHTML += `<a href=${responses[3][index]}>${response}</a><br>`
+     responseCard.innerHTML += `<a href=${responses[3][index]} target="_blank">${response}</a>&nbsp&nbsp&nbsp<button data-value="add-article-button" type="button" class="btn btn-xs btn-primary">Add Me</button><br>`
      responseCard.innerHTML += `<p>${responses[2][index]}>${response}</p>`
-     responseCard.innerHTML += `<button data-value="add-article-button" type="button">Add Me</button>`
+    //  responseCard.innerHTML += `<button data-value="add-article-button" type="button">Add Me</button>`
 
      holder1.append(responseCard)
      wikipediaDiv.append(holder1)
