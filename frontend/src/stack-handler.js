@@ -27,9 +27,9 @@ class StackHandler
       responseCard.setAttribute("data-topic-title", searchTerm)
 
 
-      responseCard.innerHTML += `<a href=${item.link}>${item.title}</a><br>`
+      responseCard.innerHTML += `<a href=${item.link} target="_blank">${item.title}</a>&nbsp&nbsp&nbsp<button data-value="add-article-button" type="button" class="btn btn-xs btn-primary">Add Me</button><br>`
       responseCard.innerHTML += `<p>${description}</p>`
-      responseCard.innerHTML += `<button data-value="add-article-button" type="button">Add Me</button>`
+      // responseCard.innerHTML += `<button data-value="add-article-button" type="button">Add Me</button>`
       holder.append(responseCard)
       STACKDIV.append(holder)
     })

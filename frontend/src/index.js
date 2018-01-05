@@ -32,6 +32,11 @@ document.addEventListener('DOMContentLoaded', () => {
        break;
 
     case "view-topic-button":
+        const existingTopic = e.target.dataset.topicTitle
+        console.log(existingTopic)
+        GoogleHandler.makeGoogleRequest(existingTopic)
+        StackXAdapter.getStackDataAPI(existingTopic).then(response => StackHandler.showResponses(response, existingTopic))
+        WikipediaAdapter.getWikiDataAPI(existingTopic).then(wikiResults => WikipediaHandler.showResponses(wikiResults, existingTopic))
         Article.render(e.target.dataset.topicId)
       break;
 
