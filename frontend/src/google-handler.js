@@ -4,7 +4,7 @@ class GoogleHandler{
       const googleDiv = document.querySelector("div.google")
       googleDiv.innerHTML = '<h2 data-toggle="collapse" data-target="#text3"> Google </h2>'
 
-      let holder1 = document.createElement('div')
+      let holder3 = document.createElement('div')
       holder3.className = "collapse"
       holder3.setAttribute("id", "text3")
 
@@ -17,9 +17,9 @@ class GoogleHandler{
         responseCard.setAttribute("data-topic-title", searchTerm)
         responseCard.setAttribute("data-toggle", "collapse")
         responseCard.innerHTML += `
-        <a href=${item.link}>${item.title}</a><br>`
+        <a href=${item.link} target="_blank">${item.title}</a>&nbsp&nbsp&nbsp<button data-value="add-article-button" type="button" class="btn btn-xs btn-primary">Add Me</button><br>`
         responseCard.innerHTML += `<p> ${item.snippet} </p>`
-        responseCard.innerHTML += `<button data-value="add-article-button" type="button">Add Me</button>`
+        // responseCard.innerHTML += `<button data-value="add-article-button" type="button">Add Me</button>`
         holder3.append(responseCard)
         googleDiv.append(holder3)
       })

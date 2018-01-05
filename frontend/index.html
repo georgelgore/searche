@@ -9,8 +9,10 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
 
     <link rel="shortcut icon" href="https://vignette.wikia.nocookie.net/paradise-bay/images/0/06/Spooky_Spectral_SpyGlass.png/revision/latest?cb=20170622065720"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
   <style>
     body {
       font-family: 'Roboto', sans-serif;
@@ -34,28 +36,26 @@
   </head>
   <body>
 
-    <div class="container container-fluid">
-      <!-- <div class="jumbotron"> -->
-        <div class="main">
-          <nav class="navbar navbar-default">
-            <div class="login-div">
-              <div class="navbar-header">
-                <a class="navbar-brand" href="#">Searche</a>
-              </div>
-
-              <div class="form-group">
-                <ul class="nav navbar-nav">
-                  <input type="text" name="username" placeholder="Login" data-value="username-input">
-                  <button type="button" name="start-login" class="btn btn-default navbar-btn" data-value="username-button">GO!</button>
-                </ul>
-
-              </div>
-            </div>
-          </nav>
-        <!-- </div> -->
+    <div class="container-fluid">
+      <div class="main">
+        <div class="row text-center">
+          <div class="col-xs-4 col-xs-offset-4">
+            <h1>Welcome to SEARCHE</h1><br>
+            <div class="input-group input-group-lg">
+              <span class="input-group-addon">
+                <span class="glyphicon glyphicon-user"></span>
+              </span>
+              <input type="text" name="username" class="form-control" placeholder="username" data-value="username-input">
+              <!-- <input class="form-control" type="text" placeholder="Email address" data-value="email-input"> -->
+            </div><br>
+            <span class= "text-danger" data-value="email-error"></span><br>
+            <button type="button" name="start-login" class="btn btn-primary btn-lg" data-value="username-button">GO!</button>
+            <!-- <button type="submit" class="btn btn-primary btn-lg" data-value="sign-in">Sign In</button> -->
+          </div>
+        </div>
       </div>
-
     </div>
+
     <script type="text/javascript" src='src/event-handler.js'>  </script>
     <script type="text/javascript" src='src/wikipedia-handler.js'>  </script>
     <script type="text/javascript" src='src/user.js'>  </script>
