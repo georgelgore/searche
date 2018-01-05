@@ -9,8 +9,8 @@ class Article{
   }
 
   static render(topicId){
+    document.getElementById("article-box").innerHTML = ''
     const articleBox = document.getElementById("article-box")
-    articleBox.innerHTML = `<button data-value="delete-topic-button" data-id=${topicId} type="button">Delete Topic</button>`
     let allArticles = Article.all.filter(article =>{
       return article.topicId === parseInt(topicId)
     })

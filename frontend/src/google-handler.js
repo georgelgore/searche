@@ -4,7 +4,7 @@ class GoogleHandler{
       const googleDiv = document.querySelector("div.google")
       googleDiv.innerHTML = '<h2 data-toggle="collapse" data-target="#text3"> Google </h2>'
 
-      let holder1 = document.createElement('div')
+      let holder3 = document.createElement('div')
       holder3.className = "collapse"
       holder3.setAttribute("id", "text3")
 

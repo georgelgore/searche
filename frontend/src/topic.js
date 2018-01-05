@@ -13,14 +13,17 @@ class Topic{
     topicDiv.innerHTML = "<h2>Existing Topics</h2>"
 
     Topic.all.forEach(top => {
-      let topDiv = document.createElement('div')
-      topDiv.style = "border:1px solid black;"
+      let topDiv = document.createElement('a')
+      let br = document.createElement('br')
+      // topDiv.style = "border:1px solid black;"
       // console.log(item)
       topDiv.setAttribute("data-topic-id", top.id)
       topDiv.setAttribute("data-topic-title", top.title)
       topDiv.setAttribute("data-value", "view-topic-button")
       topDiv.innerHTML = `${top.title}`
+      topicDiv.innerHTML += `<button data-value="delete-topic-button" data-id=${top.id} type="button" class='btn btn-xs btn-primary'>x</button>   `
       topicDiv.append(topDiv)
+      topicDiv.append(br)
     })
   }
 }

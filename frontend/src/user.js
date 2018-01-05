@@ -39,15 +39,15 @@ class User{
 
 
     <div class="row">
-      <div id="topic-box" style="border:.017px solid black; height:239px; overflow: scroll;" class="col-sm-4">
+      <div id="topic-box" style="border:.017px solid black; height:233px; overflow: scroll;" class="col-sm-4">
       </div>
-      <div id="article-box" style="border:.017px solid black; height:239px; overflow: scroll;" class="col-sm-8">
+      <div id="article-box" style="border:.017px solid black; height:233px; overflow: scroll;" class="col-sm-8">
 
       </div>
     </div>
 
     <div class="row">
-      <div id="response-box" style="border:.017px solid black; height:250px; overflow: scroll;" class="col-sm-12">
+      <div id="response-box" style="height:250px; overflow: scroll;" class="col-sm-12">
         <div class="content">
 
           <div class="google" data-toggle="collapse">
